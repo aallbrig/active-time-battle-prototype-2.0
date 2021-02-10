@@ -28,7 +28,7 @@ MonoBehaviour:
     useConstant: 0
     constantValue: {fileID: 0}
     var: 1337
-  secondsTilFullBattleMeter:
+  secondsUntilBattleMeterFull:
     useConstant: 0
     constantValue: {fileID: 0}
     var: 0.5

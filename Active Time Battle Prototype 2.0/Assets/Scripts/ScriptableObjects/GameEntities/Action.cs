@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using MonoBehaviours.Controllers;
-using ScriptableObjects.Refs;
+﻿using ScriptableObjects.Refs;
 using UnityEngine;
 
 namespace ScriptableObjects.GameEntities
@@ -16,6 +14,9 @@ namespace ScriptableObjects.GameEntities
         // applyEffectEnum (before, beforeEach, afterEach, after)
 
         public IntRef mpCost;
+
+        public BoolRef multiple;
+        public BoolRef healing;
 
         // // ingress IEnumerator
         // public IEnumerator Ingress(FighterController controller)

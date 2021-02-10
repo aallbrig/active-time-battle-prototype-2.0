@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace MonoBehaviours
+namespace MonoBehaviours.Utils
 {
     public class ConstantRotation : MonoBehaviour
     {

@@ -3,7 +3,7 @@ using MonoBehaviours.Controllers;
 using ScriptableObjects.RuntimeSets;
 using UnityEngine;
 
-namespace MonoBehaviours
+namespace MonoBehaviours.Processors
 {
     public class PlayerFighterSpawner : MonoBehaviour
     {

@@ -4,7 +4,7 @@ using ScriptableObjects.Lists;
 using ScriptableObjects.RuntimeSets;
 using UnityEngine;
 
-namespace MonoBehaviours
+namespace MonoBehaviours.Processors
 {
     public class EnemyFighterSpawner : MonoBehaviour
     {
@@ -28,6 +28,7 @@ namespace MonoBehaviours
             var shuffledSpawnPoints = new List<Transform>();
             shuffledSpawnPoints.AddRange(enemySpawnPoints);
             shuffledSpawnPoints.Sort((a, b) => Random.Range(-1, 1));
+
             var howManyEnemies = Random.Range(1, enemySpawnPoints.Count + 1);
             for (var i = 0; i < howManyEnemies; i++)
             {
