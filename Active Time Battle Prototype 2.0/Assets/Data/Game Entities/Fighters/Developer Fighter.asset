@@ -22,7 +22,15 @@ MonoBehaviour:
     var: {fileID: 4973922436733554457, guid: c46b579d930659a4ebef43ba98fee7ee, type: 3}
   animator: {fileID: 0}
   fighterClass: {fileID: 11400000, guid: 5a375d06f4767f1418b0f31375949c7b, type: 2}
-  goldReward:
+  cost:
+    useConstant: 0
+    constantValue: {fileID: 0}
+    var: 0
+  goldRewardMin:
     useConstant: 0
     constantValue: {fileID: 0}
     var: 69
+  goldRewardMax:
+    useConstant: 0
+    constantValue: {fileID: 0}
+    var: 420

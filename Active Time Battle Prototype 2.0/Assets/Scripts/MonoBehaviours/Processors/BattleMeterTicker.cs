@@ -21,7 +21,7 @@ namespace MonoBehaviours.Processors
 
         private void BattleMeterTick(FighterController fighter)
         {
-            if (fighter.currentBattleMeter >= 1.0f) return;
+            if (fighter.currentHp <= 0 || fighter.currentBattleMeter >= 1.0f) return;
 
             fighter.BattleMeterTick(battleMeterTickWait.Value);
             battleMeterTick.Broadcast(fighter);
@@ -52,7 +52,8 @@ namespace MonoBehaviours.Processors
 
         private void OnDisable()
         {
-            StopCoroutine(_battleTickerCoroutine);
+            if (_battleTickerCoroutine != null)
+                StopCoroutine(_battleTickerCoroutine);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using MonoBehaviours.Controllers;
 using MonoBehaviours.Customizers;
 using ScriptableObjects.Events;
@@ -93,6 +94,6 @@ namespace MonoBehaviours.UI
         }
 
         private List<FighterController> GetAppropriateTargetsForAction(Action action) =>
-            action.healing.Value ? playerFighters.list : enemyFighters.list;
+            action.healing.Value ? playerFighters.list : enemyFighters.list.Where(fighter => fighter.currentHp > 0).ToList();
     }
 }

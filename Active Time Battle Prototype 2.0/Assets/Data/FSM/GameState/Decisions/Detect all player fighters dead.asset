@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b42e50b0225c4eb2af93ea409b8ac30f, type: 3}
-  m_Name: UI foreground panel color
+  m_Script: {fileID: 11500000, guid: 8c6a8638dbbe42b59e3385fab27bb0f9, type: 3}
+  m_Name: Detect all player fighters dead
   m_EditorClassIdentifier: 
-  value: {r: 0.052420773, g: 0.5790934, b: 0.5849056, a: 1}
+  fighters: {fileID: 11400000, guid: 196c36362be02cc47824bb6592df8c0e, type: 2}

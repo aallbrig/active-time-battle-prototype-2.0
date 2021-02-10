@@ -13,7 +13,7 @@ namespace MonoBehaviours.Processors
         public List<Transform> enemySpawnPoints = new List<Transform>();
         public FighterController fighterControllerPrefab;
 
-        // Triggered on battle enter
+        // Triggered on battle setup enter
         public void SpawnFighters()
         {
             enemySpawnPoints.ForEach(spawnPoint =>

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 552aef1ad3a143b5944fa0dfe433c0d5, type: 3}
+  m_Name: Battle setup
+  m_EditorClassIdentifier: 
+  startActions:
+  - {fileID: 11400000, guid: 47fd2f6728e8d594e8998794e6618b92, type: 2}
+  updateActions: []
+  transitions:
+  - decision: {fileID: 11400000, guid: 244498aecad416f418a0e94b8f2522e0, type: 2}
+    trueState: {fileID: 11400000, guid: 6e70e10aa8ca975479ed3ee388338617, type: 2}
+  leaveActions:
+  - {fileID: 11400000, guid: 72aac5f50788dd849b8d6ea6280340bc, type: 2}

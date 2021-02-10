@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using MonoBehaviours.Controllers;
+using ScriptableObjects.Events;
 using ScriptableObjects.GameEntities;
 using ScriptableObjects.Refs;
 using ScriptableObjects.RuntimeQueue;
@@ -12,6 +13,7 @@ namespace MonoBehaviours.Processors
 {
     public class EnemyInput : MonoBehaviour
     {
+        public BattleCommandEvent battleCommand;
         public FighterControllerRuntimeSet playerFighters;
         public FighterControllerRuntimeSet enemyFighters;
         public FloatRef aiWaitMin;
@@ -32,7 +34,7 @@ namespace MonoBehaviours.Processors
         {
             var list = action.healing.Value ? enemyFighters.list : playerFighters.list;
             var targets = action.multiple.Value ? list : new List<FighterController>() {list[Random.Range(0, list.Count)]};
-            return targets;
+            return targets.Where(fighter => fighter.currentHp > 0).ToList();
         }
 
         private IEnumerator InputQueueProcessor()
@@ -62,8 +64,7 @@ namespace MonoBehaviours.Processors
                         yield return null;
                     }
 
-                    yield return activeFighter.PerformAction(selectedAction, targets);
-                    activeFighter.ResetBattleMeter();
+                    battleCommand.Broadcast(activeFighter, selectedAction, targets);
                 }
 
                 yield return null;

@@ -1,15 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
+using Interfaces;
 using ScriptableObjects.GameEntities;
 using UnityEngine;
 using UnityEngine.AI;
+using Action = ScriptableObjects.GameEntities.Action;
+using Random = UnityEngine.Random;
 
 namespace MonoBehaviours.Controllers
 {
     [RequireComponent(typeof(NavMeshAgent))]
     [RequireComponent(typeof(Fighter))]
-    public class FighterController : MonoBehaviour
+    public class FighterController : MonoBehaviour, IHealable, IDamageable
     {
         public Fighter fighterTemplate;
         public int maxHp;
@@ -39,6 +44,8 @@ namespace MonoBehaviours.Controllers
 
         public IEnumerator PerformAction(Action action, List<FighterController> targets)
         {
+            if (currentHp <= 0 || targets.Count == 0) yield break;
+
             ready = false;
 
             // Ingress
@@ -47,7 +54,16 @@ namespace MonoBehaviours.Controllers
             yield return AgentReachedDestination(_agent);
 
             // Action
-            Debug.Log("Action");
+            // TODO: Replace with action ienumerator method call
+            var effectValue = Random.Range(action.effectMin.Value, action.effectMax.Value);
+            targets.ForEach(target =>
+            {
+                if (action.healing.Value)
+                    target.Heal(effectValue);
+                else
+                    target.Damage(effectValue);
+            });
+
             yield return new WaitForSeconds(1f);
 
             // Egress
@@ -55,6 +71,8 @@ namespace MonoBehaviours.Controllers
             _agent.destination = _startingPosition;
             yield return AgentReachedDestination(_agent);
             _transform.rotation = _startingRotation;
+
+            ResetBattleMeter();
             ready = true;
         }
 
@@ -104,6 +122,17 @@ namespace MonoBehaviours.Controllers
 
                 animator.runtimeAnimatorController = fighterTemplate.animator;
             }
+        }
+        public void Heal(int heal)
+        {
+            if (currentHp <= 0 && heal > 0) ResetBattleMeter();
+
+            currentHp = Mathf.Clamp(currentHp + heal, 0, maxHp);
+        }
+
+        public void Damage(int hurt)
+        {
+            currentHp = Mathf.Clamp(currentHp - hurt, 0, maxHp);
         }
     }
 }

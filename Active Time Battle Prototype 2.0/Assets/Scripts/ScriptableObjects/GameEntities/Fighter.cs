@@ -13,6 +13,8 @@ namespace ScriptableObjects.GameEntities
         public GameObjectRef model;
         public RuntimeAnimatorController animator;
         public FighterClass fighterClass;
-        public IntRef goldReward;
+        public IntRef cost;
+        public IntRef goldRewardMin;
+        public IntRef goldRewardMax;
     }
 }

@@ -4,7 +4,6 @@ using System.Linq;
 using MonoBehaviours.Controllers;
 using ScriptableObjects.Events;
 using ScriptableObjects.GameEntities;
-using ScriptableObjects.Refs;
 using ScriptableObjects.RuntimeQueue;
 using ScriptableObjects.RuntimeSets;
 using UnityEngine;
@@ -13,8 +12,8 @@ namespace MonoBehaviours.Processors
 {
     public class PlayerInput : MonoBehaviour
     {
+        public BattleCommandEvent battleCommand;
         public FighterControllerRuntimeSet playerFighters;
-        public FighterControllerRuntimeSet enemyFighters;
         public FighterControllerRuntimeQueue inputQueue;
         public FighterControllerEvent activePlayerFighter;
 
@@ -34,13 +33,6 @@ namespace MonoBehaviours.Processors
 
         public void ClearQueue() => inputQueue.queue.Clear();
 
-        private List<FighterController> GetAppropriateTargetsForAction(Action action)
-        {
-            var list = action.healing.Value ? playerFighters.list : enemyFighters.list;
-            var targets = action.multiple.Value ? list : new List<FighterController> {list[Random.Range(0, list.Count)]};
-            return targets;
-        }
-
         private IEnumerator InputQueueProcessor()
         {
             while (true)
@@ -56,11 +48,15 @@ namespace MonoBehaviours.Processors
                     while (_targets == null)
                         yield return null;
 
-                    while (_targets.Where(fighter => !fighter.ready).ToList().Count > 0)
+                    while (_targets.Where(fighter => fighter.currentHp > 0).Where(fighter => !fighter.ready).ToList().Count > 0)
                         yield return null;
 
-                    yield return _activeFighter.PerformAction(_selectedAction, _targets);
-                    _activeFighter.ResetBattleMeter();
+                    battleCommand.Broadcast(_activeFighter, _selectedAction, _targets);
+                    yield return null;
+
+                    _selectedAction = null;
+                    _targets = null;
+                    _activeFighter = null;
                 }
 
                 yield return null;

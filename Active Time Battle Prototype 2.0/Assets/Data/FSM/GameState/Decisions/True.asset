@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b42e50b0225c4eb2af93ea409b8ac30f, type: 3}
-  m_Name: UI foreground panel color
+  m_Script: {fileID: 11500000, guid: 6ba8d0fc8eb54481a16ced495c2fbdb7, type: 3}
+  m_Name: True
   m_EditorClassIdentifier: 
-  value: {r: 0.052420773, g: 0.5790934, b: 0.5849056, a: 1}
