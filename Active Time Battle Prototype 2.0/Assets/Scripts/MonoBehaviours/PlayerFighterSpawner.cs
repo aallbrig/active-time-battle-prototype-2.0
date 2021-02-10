@@ -9,7 +9,7 @@ namespace MonoBehaviours
     {
         public FighterRuntimeSet selectedFighters;
         public FighterControllerRuntimeSet playerFighters;
-        public List<Transform> spawnPoints = new List<Transform>();
+        public List<Transform> playerSpawnPoints = new List<Transform>();
         public FighterController fighterControllerPrefab;
 
         // Triggered on character select state leave
@@ -20,7 +20,7 @@ namespace MonoBehaviours
                 for (int i = 0; i < selectedFighters.list.Count; i++)
                 {
                     var fighter = selectedFighters.list[i];
-                    var spawnPoint = spawnPoints[i];
+                    var spawnPoint = playerSpawnPoints[i];
 
                     if (spawnPoint != null)
                     {
