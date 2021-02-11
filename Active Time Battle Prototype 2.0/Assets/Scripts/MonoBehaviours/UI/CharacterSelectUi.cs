@@ -19,6 +19,8 @@ namespace MonoBehaviours.UI
 
         private bool _active;
 
+        private void Awake() => RenderUi();
+
         public void BroadcastSelectClick()
         {
             _active = true;
@@ -62,11 +64,6 @@ namespace MonoBehaviours.UI
             }
 
             Instantiate(selectedFighter.model.Value, modelPreview.transform);
-        }
-
-        private void Awake()
-        {
-            RenderUi();
         }
     }
 }

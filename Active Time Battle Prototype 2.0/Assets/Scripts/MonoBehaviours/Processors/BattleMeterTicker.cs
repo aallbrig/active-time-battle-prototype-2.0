@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using MonoBehaviours.Controllers;
 using ScriptableObjects.Events;
 using ScriptableObjects.Refs;
@@ -18,6 +17,18 @@ namespace MonoBehaviours.Processors
         public FloatRef battleMeterTickWait;
 
         private IEnumerator _battleTickerCoroutine;
+
+        private void Awake()
+        {
+            _battleTickerCoroutine = BattleTickerCoroutine();
+            StartCoroutine(_battleTickerCoroutine);
+        }
+
+        private void OnDisable()
+        {
+            if (_battleTickerCoroutine != null)
+                StopCoroutine(_battleTickerCoroutine);
+        }
 
         private void BattleMeterTick(FighterController fighter)
         {
@@ -42,18 +53,6 @@ namespace MonoBehaviours.Processors
 
                 yield return new WaitForSeconds(battleMeterTickWait.Value);
             }
-        }
-
-        private void Awake()
-        {
-            _battleTickerCoroutine = BattleTickerCoroutine();
-            StartCoroutine(_battleTickerCoroutine);
-        }
-
-        private void OnDisable()
-        {
-            if (_battleTickerCoroutine != null)
-                StopCoroutine(_battleTickerCoroutine);
         }
     }
 }

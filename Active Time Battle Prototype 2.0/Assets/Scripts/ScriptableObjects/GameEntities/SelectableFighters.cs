@@ -7,6 +7,5 @@ namespace ScriptableObjects.GameEntities
     public class SelectableFighters : ScriptableObject
     {
         public List<Fighter> fighters;
-        
     }
 }

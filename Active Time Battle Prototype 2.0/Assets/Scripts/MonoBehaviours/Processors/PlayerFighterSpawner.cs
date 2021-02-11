@@ -16,8 +16,7 @@ namespace MonoBehaviours.Processors
         public void SpawnFighters()
         {
             if (selectedFighters.list.Count > 0)
-            {
-                for (int i = 0; i < selectedFighters.list.Count; i++)
+                for (var i = 0; i < selectedFighters.list.Count; i++)
                 {
                     var fighter = selectedFighters.list[i];
                     var spawnPoint = playerSpawnPoints[i];
@@ -36,7 +35,6 @@ namespace MonoBehaviours.Processors
                         playerFighters.Add(fighterController);
                     }
                 }
-            }
         }
     }
 }

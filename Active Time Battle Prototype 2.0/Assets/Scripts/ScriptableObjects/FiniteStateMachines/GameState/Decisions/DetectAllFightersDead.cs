@@ -14,9 +14,8 @@ namespace ScriptableObjects.FiniteStateMachines.GameState.Decisions
     {
         public FighterControllerRuntimeSet fighters;
 
-        public override bool Decide(GameStateContext context)
-        {
-            return fighters.list.Count > 0 && fighters.list.Where(fighter => fighter.currentHp > 0).ToList().Count == 0;
-        }
+        public override bool Decide(GameStateContext context) => fighters.list.Count > 0 &&
+                                                                 fighters.list.Where(fighter => fighter.currentHp > 0)
+                                                                     .ToList().Count == 0;
     }
 }

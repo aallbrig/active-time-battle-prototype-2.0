@@ -22,6 +22,12 @@ namespace MonoBehaviours.Processors
 
         private IEnumerator _inputQueueProcessor;
 
+        private void Start()
+        {
+            _inputQueueProcessor = InputQueueProcessor();
+            StartCoroutine(_inputQueueProcessor);
+        }
+
         public void HandleBattleMeterFull(FighterController fighter)
         {
             if (enemyFighters.list.Contains(fighter) && !inputQueue.queue.Contains(fighter))
@@ -33,7 +39,7 @@ namespace MonoBehaviours.Processors
         private List<FighterController> GetAppropriateTargetsForAction(Action action)
         {
             var list = action.healing.Value ? enemyFighters.list : playerFighters.list;
-            var targets = action.multiple.Value ? list : new List<FighterController>() {list[Random.Range(0, list.Count)]};
+            var targets = action.multiple.Value ? list : new List<FighterController> {list[Random.Range(0, list.Count)]};
             return targets.Where(fighter => fighter.currentHp > 0).ToList();
         }
 
@@ -60,21 +66,13 @@ namespace MonoBehaviours.Processors
                     yield return new WaitForSeconds(Random.Range(aiWaitMin.Value, aiWaitMax.Value));
 
                     while (targets.Where(fighter => !fighter.ready).ToList().Count > 0)
-                    {
                         yield return null;
-                    }
 
                     battleCommand.Broadcast(activeFighter, selectedAction, targets);
                 }
 
                 yield return null;
             }
-        }
-
-        private void Start()
-        {
-            _inputQueueProcessor = InputQueueProcessor();
-            StartCoroutine(_inputQueueProcessor);
         }
     }
 }

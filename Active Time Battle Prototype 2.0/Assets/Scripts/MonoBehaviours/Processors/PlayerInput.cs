@@ -16,11 +16,17 @@ namespace MonoBehaviours.Processors
         public FighterControllerRuntimeSet playerFighters;
         public FighterControllerRuntimeQueue inputQueue;
         public FighterControllerEvent activePlayerFighter;
+        private FighterController _activeFighter;
 
         private IEnumerator _inputQueueProcessor;
-        private FighterController _activeFighter;
         private Action _selectedAction;
         private List<FighterController> _targets;
+
+        private void Start()
+        {
+            _inputQueueProcessor = InputQueueProcessor();
+            StartCoroutine(_inputQueueProcessor);
+        }
 
         public void HandleBattleMeterFull(FighterController fighter)
         {
@@ -48,7 +54,8 @@ namespace MonoBehaviours.Processors
                     while (_targets == null)
                         yield return null;
 
-                    while (_targets.Where(fighter => fighter.currentHp > 0).Where(fighter => !fighter.ready).ToList().Count > 0)
+                    while (_targets.Where(fighter => fighter.currentHp > 0).Where(fighter => !fighter.ready).ToList().Count >
+                           0)
                         yield return null;
 
                     battleCommand.Broadcast(_activeFighter, _selectedAction, _targets);
@@ -61,12 +68,6 @@ namespace MonoBehaviours.Processors
 
                 yield return null;
             }
-        }
-
-        private void Start()
-        {
-            _inputQueueProcessor = InputQueueProcessor();
-            StartCoroutine(_inputQueueProcessor);
         }
     }
 }

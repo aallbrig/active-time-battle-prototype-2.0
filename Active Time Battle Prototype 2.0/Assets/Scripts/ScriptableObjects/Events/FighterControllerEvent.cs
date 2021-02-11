@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using MonoBehaviours.Controllers;
 using MonoBehaviours.EventListeners;
-using ScriptableObjects.GameEntities;
 using UnityEngine;
 
 namespace ScriptableObjects.Events

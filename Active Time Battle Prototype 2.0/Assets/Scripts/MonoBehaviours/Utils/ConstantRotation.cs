@@ -7,13 +7,7 @@ namespace MonoBehaviours.Utils
         public float rotationSpeed;
         private Transform _transform;
 
-        private void Start()
-        {
-            _transform = transform;
-        }
-        private void Update()
-        {
-            _transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
-        }
+        private void Start() => _transform = transform;
+        private void Update() => _transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
     }
 }

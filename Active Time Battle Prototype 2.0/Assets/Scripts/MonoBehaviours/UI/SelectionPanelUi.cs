@@ -1,7 +1,5 @@
-﻿using System.Collections.Generic;
-using MonoBehaviours.Customizers;
+﻿using MonoBehaviours.Customizers;
 using ScriptableObjects.Events;
-using ScriptableObjects.GameEntities;
 using ScriptableObjects.Lists;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,7 +24,7 @@ namespace MonoBehaviours.UI
                 {
                     fighterSelectedEvent.Broadcast(fighter);
                 });
-                
+
 
                 var customizer = button.GetComponentInChildren<TextMeshProTextCustomizer>();
                 customizer.text = fighter.fighterName;
