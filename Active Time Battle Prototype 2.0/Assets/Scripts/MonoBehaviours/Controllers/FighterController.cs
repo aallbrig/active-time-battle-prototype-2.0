@@ -32,6 +32,14 @@ namespace MonoBehaviours.Controllers
 
         public List<Action> Actions => fighterTemplate.fighterClass.actions;
 
+        public void Reset()
+        {
+            ResetBattleMeter();
+            _transform.position = _startingPosition;
+            _transform.rotation = _startingRotation;
+            _agent.SetDestination(_startingPosition);
+        }
+
         private void Start()
         {
             _transform = transform;
@@ -116,14 +124,6 @@ namespace MonoBehaviours.Controllers
         {
             if (fighter == this)
                 ResetBattleMeter();
-        }
-
-        public void Reset()
-        {
-            ResetBattleMeter();
-            _transform.position = _startingPosition;
-            _transform.rotation = _startingRotation;
-            _agent.SetDestination(_startingPosition);
         }
 
         private IEnumerator AgentReachedDestination(NavMeshAgent agent)

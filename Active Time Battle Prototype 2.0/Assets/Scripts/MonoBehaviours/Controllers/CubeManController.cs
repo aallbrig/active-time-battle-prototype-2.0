@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using ScriptableObjects.GameEntities;
 using ScriptableObjects.Refs;
 using UnityEngine;
-using Action = ScriptableObjects.GameEntities.Action;
 
 namespace MonoBehaviours.Controllers
 {
@@ -16,6 +15,19 @@ namespace MonoBehaviours.Controllers
 
         private FighterController _fighter;
         private MeshRenderer _meshRenderer;
+
+        private void Start()
+        {
+            _fighter = GetComponentInParent<FighterController>();
+            _meshRenderer = GetComponent<MeshRenderer>();
+            ToDefaultColor();
+        }
+
+        private void Update()
+        {
+            if (_fighter != null && _fighter.currentHp <= 0)
+                ToDeadColor();
+        }
 
         public void HandleBattleCommandReady(FighterController fighter, Action action, List<FighterController> targets)
         {
@@ -46,18 +58,5 @@ namespace MonoBehaviours.Controllers
         private void ToReadyColor() => _meshRenderer.material.color = battleMeterFullColor.Value;
         private void ToBattleCommandReadyColor() => _meshRenderer.material.color = battleCommandReady.Value;
         private void ToDeadColor() => _meshRenderer.material.color = deadColor.Value;
-
-        private void Update()
-        {
-            if (_fighter != null && _fighter.currentHp <= 0)
-                ToDeadColor();
-        }
-
-        private void Start()
-        {
-            _fighter = GetComponentInParent<FighterController>();
-            _meshRenderer = GetComponent<MeshRenderer>();
-            ToDefaultColor();
-        }
     }
 }

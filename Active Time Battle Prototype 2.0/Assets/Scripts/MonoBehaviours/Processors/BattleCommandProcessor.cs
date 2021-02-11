@@ -28,6 +28,10 @@ namespace MonoBehaviours.Processors
     {
         private readonly Queue<BattleCommand> _battleCommandQueue = new Queue<BattleCommand>();
 
+        private void OnEnable() => StartCoroutine(ProcessBattleCommandQueue());
+
+        private void OnDisable() => StopAllCoroutines();
+
         public void ClearQueue() => _battleCommandQueue.Clear();
         public void HandleBattleCommandEvent(FighterController fighter, Action action, List<FighterController> targets) =>
             _battleCommandQueue.Enqueue(new BattleCommand(fighter, action, targets));
@@ -45,9 +49,5 @@ namespace MonoBehaviours.Processors
                     yield return null;
                 }
         }
-
-        private void OnEnable() => StartCoroutine(ProcessBattleCommandQueue());
-
-        private void OnDisable() => StopAllCoroutines();
     }
 }

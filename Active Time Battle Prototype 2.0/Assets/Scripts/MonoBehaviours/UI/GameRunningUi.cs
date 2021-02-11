@@ -52,8 +52,9 @@ namespace MonoBehaviours.UI
             {
                 selectItemUi.SetActive(true);
 
-                foreach (var actionButton in selectActionUiButtonContainer.GetComponentsInChildren<Button>())
-                    actionButton.interactable = false;
+                // TODO: Handle Items
+                // foreach (var actionButton in selectActionUiButtonContainer.GetComponentsInChildren<Button>())
+                // actionButton.interactable = false;
             });
 
             selectActionUi.SetActive(true);

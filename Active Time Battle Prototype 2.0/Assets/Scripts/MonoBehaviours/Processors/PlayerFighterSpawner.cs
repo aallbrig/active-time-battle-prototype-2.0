@@ -27,7 +27,6 @@ namespace MonoBehaviours.Processors
 
             // Spawn players
             if (selectedFighters.list.Count > 0)
-            {
                 for (var i = 0; i < selectedFighters.list.Count; i++)
                 {
                     var fighter = selectedFighters.list[i];
@@ -40,7 +39,6 @@ namespace MonoBehaviours.Processors
                         playerFighters.Add(fighterController);
                     }
                 }
-            }
 
             // Clear selection
             selectedFighters.list.Clear();

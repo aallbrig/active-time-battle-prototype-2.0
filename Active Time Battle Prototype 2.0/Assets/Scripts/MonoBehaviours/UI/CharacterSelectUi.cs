@@ -1,5 +1,4 @@
-﻿using System;
-using ScriptableObjects.Events;
+﻿using ScriptableObjects.Events;
 using ScriptableObjects.GameEntities;
 using ScriptableObjects.RuntimeSets;
 using TMPro;
