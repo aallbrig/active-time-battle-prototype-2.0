@@ -5778,6 +5778,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2112617905}
+        m_MethodName: ClearQueue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1395186836 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6898796042105935194, guid: dcf591bfa3633c446a754965b9217f67,
@@ -6683,7 +6694,7 @@ PrefabInstance:
     - target: {fileID: 6898796042105935168, guid: dcf591bfa3633c446a754965b9217f67,
         type: 3}
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6898796042105935168, guid: dcf591bfa3633c446a754965b9217f67,
         type: 3}
@@ -6717,6 +6728,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6898796042105935168, guid: dcf591bfa3633c446a754965b9217f67,
         type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[7].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6898796042105935168, guid: dcf591bfa3633c446a754965b9217f67,
+        type: 3}
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 999425109}
@@ -6747,6 +6763,11 @@ PrefabInstance:
       objectReference: {fileID: 2112617905}
     - target: {fileID: 6898796042105935168, guid: dcf591bfa3633c446a754965b9217f67,
         type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[7].m_Target
+      value: 
+      objectReference: {fileID: 1334909160}
+    - target: {fileID: 6898796042105935168, guid: dcf591bfa3633c446a754965b9217f67,
+        type: 3}
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -6773,6 +6794,11 @@ PrefabInstance:
     - target: {fileID: 6898796042105935168, guid: dcf591bfa3633c446a754965b9217f67,
         type: 3}
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[6].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6898796042105935168, guid: dcf591bfa3633c446a754965b9217f67,
+        type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[7].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6898796042105935168, guid: dcf591bfa3633c446a754965b9217f67,
@@ -6807,6 +6833,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6898796042105935168, guid: dcf591bfa3633c446a754965b9217f67,
         type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[7].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 6898796042105935168, guid: dcf591bfa3633c446a754965b9217f67,
+        type: 3}
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
@@ -6833,6 +6864,11 @@ PrefabInstance:
     - target: {fileID: 6898796042105935168, guid: dcf591bfa3633c446a754965b9217f67,
         type: 3}
       propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[6].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6898796042105935168, guid: dcf591bfa3633c446a754965b9217f67,
+        type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[7].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6898796042105935169, guid: dcf591bfa3633c446a754965b9217f67,

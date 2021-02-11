@@ -30,7 +30,7 @@ namespace MonoBehaviours.Processors
 
         public void HandleBattleMeterFull(FighterController fighter)
         {
-            if (enemyFighters.list.Contains(fighter) && !inputQueue.queue.Contains(fighter))
+            if (enemyFighters.list.Contains(fighter))
                 inputQueue.Enqueue(fighter);
         }
 

@@ -1,4 +1,5 @@
-﻿using ScriptableObjects.Events;
+﻿using System;
+using ScriptableObjects.Events;
 using ScriptableObjects.GameEntities;
 using ScriptableObjects.RuntimeSets;
 using TMPro;
@@ -19,7 +20,13 @@ namespace MonoBehaviours.UI
 
         private bool _active;
 
-        private void Awake() => RenderUi();
+        private void OnEnable() => RenderUi();
+        private void OnDisable()
+        {
+            selectedFighter = null;
+            foreach (Transform child in modelPreview.transform)
+                Destroy(child.gameObject);
+        }
 
         public void BroadcastSelectClick()
         {

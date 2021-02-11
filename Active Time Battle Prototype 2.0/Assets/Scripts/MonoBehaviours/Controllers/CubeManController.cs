@@ -49,7 +49,7 @@ namespace MonoBehaviours.Controllers
 
         private void Update()
         {
-            if (_fighter.currentHp <= 0)
+            if (_fighter != null && _fighter.currentHp <= 0)
                 ToDeadColor();
         }
 

@@ -15,7 +15,19 @@ namespace MonoBehaviours.Processors
         // Triggered on character select state leave
         public void SpawnFighters()
         {
+            // Clear spawn points
+            playerSpawnPoints.ForEach(spawnPoint =>
+            {
+                foreach (Transform child in spawnPoint.transform)
+                {
+                    Destroy(child.gameObject);
+                    playerFighters.Remove(child.GetComponent<FighterController>());
+                }
+            });
+
+            // Spawn players
             if (selectedFighters.list.Count > 0)
+            {
                 for (var i = 0; i < selectedFighters.list.Count; i++)
                 {
                     var fighter = selectedFighters.list[i];
@@ -23,18 +35,15 @@ namespace MonoBehaviours.Processors
 
                     if (spawnPoint != null)
                     {
-                        foreach (Transform child in spawnPoint.transform)
-                        {
-                            Destroy(child.gameObject);
-                            playerFighters.Remove(child.GetComponent<FighterController>());
-                        }
-
                         var fighterController = Instantiate(fighterControllerPrefab, spawnPoint);
                         fighterController.fighterTemplate = fighter;
-
                         playerFighters.Add(fighterController);
                     }
                 }
+            }
+
+            // Clear selection
+            selectedFighters.list.Clear();
         }
     }
 }

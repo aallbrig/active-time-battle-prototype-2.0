@@ -18,7 +18,7 @@ namespace MonoBehaviours.Processors
 
         private IEnumerator _battleTickerCoroutine;
 
-        private void Awake()
+        private void OnEnable()
         {
             _battleTickerCoroutine = BattleTickerCoroutine();
             StartCoroutine(_battleTickerCoroutine);

@@ -1,12 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using MonoBehaviours.Controllers;
 using ScriptableObjects.Events;
-using ScriptableObjects.GameEntities;
 using ScriptableObjects.RuntimeQueue;
 using ScriptableObjects.RuntimeSets;
 using UnityEngine;
+using Action = ScriptableObjects.GameEntities.Action;
 
 namespace MonoBehaviours.Processors
 {
@@ -22,10 +23,15 @@ namespace MonoBehaviours.Processors
         private Action _selectedAction;
         private List<FighterController> _targets;
 
-        private void Start()
+        private void OnEnable()
         {
             _inputQueueProcessor = InputQueueProcessor();
             StartCoroutine(_inputQueueProcessor);
+        }
+        private void OnDisable()
+        {
+            if (_inputQueueProcessor != null)
+                StopCoroutine(_inputQueueProcessor);
         }
 
         public void HandleBattleMeterFull(FighterController fighter)

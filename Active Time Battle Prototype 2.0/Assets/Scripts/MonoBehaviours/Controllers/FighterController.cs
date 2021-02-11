@@ -75,7 +75,11 @@ namespace MonoBehaviours.Controllers
 
         public IEnumerator PerformAction(Action action, List<FighterController> targets)
         {
-            if (currentHp <= 0 || targets.Count == 0) yield break;
+            if (currentHp <= 0 || targets.Count == 0 || targets.Where(fighter => fighter.currentHp > 0).ToList().Count <= 0)
+            {
+                actionComplete.Broadcast(this);
+                yield break;
+            }
 
             actionStart.Broadcast(this);
             ready = false;
@@ -112,6 +116,14 @@ namespace MonoBehaviours.Controllers
         {
             if (fighter == this)
                 ResetBattleMeter();
+        }
+
+        public void Reset()
+        {
+            ResetBattleMeter();
+            _transform.position = _startingPosition;
+            _transform.rotation = _startingRotation;
+            _agent.SetDestination(_startingPosition);
         }
 
         private IEnumerator AgentReachedDestination(NavMeshAgent agent)
