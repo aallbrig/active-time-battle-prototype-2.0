@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Interfaces;
+using ScriptableObjects.Events;
 using ScriptableObjects.GameEntities;
 using UnityEngine;
 using UnityEngine.AI;
@@ -12,6 +13,8 @@ namespace MonoBehaviours.Controllers
     [RequireComponent(typeof(Fighter))]
     public class FighterController : MonoBehaviour, IHealable, IDamageable
     {
+        public FighterControllerEvent actionStart;
+        public FighterControllerEvent actionComplete;
         public Fighter fighterTemplate;
         public int maxHp;
         public int currentHp;
@@ -74,6 +77,7 @@ namespace MonoBehaviours.Controllers
         {
             if (currentHp <= 0 || targets.Count == 0) yield break;
 
+            actionStart.Broadcast(this);
             ready = false;
 
             // Ingress
@@ -100,8 +104,14 @@ namespace MonoBehaviours.Controllers
             yield return AgentReachedDestination(_agent);
             _transform.rotation = _startingRotation;
 
-            ResetBattleMeter();
+            actionComplete.Broadcast(this);
             ready = true;
+        }
+
+        public void HandleActionComplete(FighterController fighter)
+        {
+            if (fighter == this)
+                ResetBattleMeter();
         }
 
         private IEnumerator AgentReachedDestination(NavMeshAgent agent)

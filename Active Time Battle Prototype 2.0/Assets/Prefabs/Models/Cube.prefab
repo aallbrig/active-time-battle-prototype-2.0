@@ -12,6 +12,11 @@ GameObject:
   - component: {fileID: 4973922436733554454}
   - component: {fileID: 4973922436733554455}
   - component: {fileID: 4973922436733554456}
+  - component: {fileID: 8045485515570444931}
+  - component: {fileID: 7309308955704275128}
+  - component: {fileID: 8653812863688868681}
+  - component: {fileID: 8171077631714203780}
+  - component: {fileID: 7744142594019475591}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -93,3 +98,143 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8045485515570444931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4973922436733554457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cdb5a1a542440088062cea7e247dcb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultColor:
+    useConstant: 0
+    constantValue: {fileID: 0}
+    var: {r: 0.6037736, g: 0.56674975, b: 0.56674975, a: 1}
+  actionStartColor:
+    useConstant: 0
+    constantValue: {fileID: 0}
+    var: {r: 0.990566, g: 0.06074228, b: 0.841222, a: 1}
+  battleMeterFullColor:
+    useConstant: 0
+    constantValue: {fileID: 0}
+    var: {r: 0.8744007, g: 1, b: 0.042452812, a: 1}
+  battleCommandReady:
+    useConstant: 0
+    constantValue: {fileID: 0}
+    var: {r: 0.27105275, g: 0.7830189, b: 0.040628344, a: 1}
+  deadColor:
+    useConstant: 0
+    constantValue: {fileID: 0}
+    var: {r: 0.11227306, g: 0.14173883, b: 0.2735849, a: 1}
+--- !u!114 &7309308955704275128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4973922436733554457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22626ccb8b6c4f649b43c1017ef3d904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soEvent: {fileID: 11400000, guid: cf42d2de99e849d419cbfe285ca5e998, type: 2}
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8045485515570444931}
+        m_MethodName: HandleBattleCommandReady
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8653812863688868681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4973922436733554457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4873e671dc441cabe39230181c4692, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soEvent: {fileID: 11400000, guid: 29862b75aef11384aa121a483f390b1a, type: 2}
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8045485515570444931}
+        m_MethodName: HandleBattleMeterFull
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8171077631714203780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4973922436733554457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4873e671dc441cabe39230181c4692, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soEvent: {fileID: 11400000, guid: b57962f9e90d2304cb4b1293702e71f3, type: 2}
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8045485515570444931}
+        m_MethodName: HandleFighterActionStart
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7744142594019475591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4973922436733554457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4873e671dc441cabe39230181c4692, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soEvent: {fileID: 11400000, guid: 8478794d1cede244a91feab0f3100901, type: 2}
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8045485515570444931}
+        m_MethodName: HandleFighterActionComplete
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

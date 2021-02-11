@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7318697342564780015}
   - component: {fileID: 7318697342564780014}
   - component: {fileID: 3844381226569998677}
+  - component: {fileID: -6083391921161452971}
   m_Layer: 0
   m_Name: Fighter Controller
   m_TagString: Untagged
@@ -67,6 +68,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10ab0e375a14435ab7b905c9166861ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionStart: {fileID: 11400000, guid: b57962f9e90d2304cb4b1293702e71f3, type: 2}
+  actionComplete: {fileID: 11400000, guid: 8478794d1cede244a91feab0f3100901, type: 2}
   fighterTemplate: {fileID: 0}
   maxHp: 0
   currentHp: 0
@@ -94,6 +97,33 @@ MonoBehaviour:
       - m_Target: {fileID: 7318697342564780014}
         m_MethodName: ResetBattleMeter
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &-6083391921161452971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7318697342564780000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4873e671dc441cabe39230181c4692, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soEvent: {fileID: 11400000, guid: 8478794d1cede244a91feab0f3100901, type: 2}
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7318697342564780014}
+        m_MethodName: HandleActionComplete
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

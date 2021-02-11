@@ -23,7 +23,6 @@ namespace MonoBehaviours.Processors
 
         public IEnumerator Execute()
         {
-            _fighter.ResetBattleMeter();
             return _fighter.PerformAction(_action, _targets);
         }
     }
