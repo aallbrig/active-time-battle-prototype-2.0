@@ -93,6 +93,8 @@ MonoBehaviour:
   actionStart: {fileID: 11400000, guid: b57962f9e90d2304cb4b1293702e71f3, type: 2}
   actionComplete: {fileID: 11400000, guid: 8478794d1cede244a91feab0f3100901, type: 2}
   fighterDied: {fileID: 11400000, guid: 0e6ca6b9e24293449997140c879e8e93, type: 2}
+  fighterDamaged: {fileID: 11400000, guid: 5802f21fe5bc1d849b0ff747fa93c46d, type: 2}
+  fighterHealed: {fileID: 11400000, guid: 25700a43179788e478f597abfba90953, type: 2}
   fighterTemplate: {fileID: 0}
   maxHp: 0
   currentHp: 0
