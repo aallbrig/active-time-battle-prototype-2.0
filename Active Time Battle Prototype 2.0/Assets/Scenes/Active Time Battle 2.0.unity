@@ -2625,6 +2625,7 @@ GameObject:
   - component: {fileID: 293650022}
   - component: {fileID: 293650025}
   - component: {fileID: 293650026}
+  - component: {fileID: 293650027}
   m_Layer: 0
   m_Name: Character Select UI
   m_TagString: Untagged
@@ -2768,6 +2769,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &293650027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293650020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e62f1c806214720ba099f63d8148b2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &312206018
 GameObject:
   m_ObjectHideFlags: 0
@@ -4735,12 +4748,12 @@ PrefabInstance:
     - target: {fileID: 6272516531936058867, guid: b88adba22a1c3424196da9b7e1c38565,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6272516531936058867, guid: b88adba22a1c3424196da9b7e1c38565,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6272516531936058867, guid: b88adba22a1c3424196da9b7e1c38565,
         type: 3}
@@ -4751,7 +4764,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1395186836}
+      objectReference: {fileID: 293650027}
     - target: {fileID: 6272516531936058867, guid: b88adba22a1c3424196da9b7e1c38565,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
@@ -4760,18 +4773,17 @@ PrefabInstance:
     - target: {fileID: 6272516531936058867, guid: b88adba22a1c3424196da9b7e1c38565,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TransitionToState
+      value: OnAllRandomClick
       objectReference: {fileID: 0}
     - target: {fileID: 6272516531936058867, guid: b88adba22a1c3424196da9b7e1c38565,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 11400000, guid: 200bb43ec056c2a489b2583797ac8d43,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 6272516531936058867, guid: b88adba22a1c3424196da9b7e1c38565,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: ScriptableObjects.FiniteStateMachines.GameState.State, Scripts
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6272516531936058877, guid: b88adba22a1c3424196da9b7e1c38565,
         type: 3}
@@ -5472,7 +5484,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh107680
+  m_Name: pb_Mesh14380
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6095,6 +6107,8 @@ MonoBehaviour:
   selectTargetsUiButtonContainer: {fileID: 275399071}
   buttonPrefab: {fileID: 6272516531936058877, guid: b88adba22a1c3424196da9b7e1c38565,
     type: 3}
+  onTargetHoverEnter: {fileID: 11400000, guid: 46126da5c22cbcf4fb303373064a3581, type: 2}
+  onTargetHoverLeave: {fileID: 11400000, guid: fad1adf56b8016842a2e18e688370260, type: 2}
   actionSelected: {fileID: 11400000, guid: 67fe4eb146de60c49bcc578ff9225b73, type: 2}
   targetsSelected: {fileID: 11400000, guid: d1bda31eae098da41822464884cd1c28, type: 2}
 --- !u!114 &1049002751
@@ -6165,6 +6179,44 @@ MonoBehaviour:
       - m_Target: {fileID: 262217923}
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1049002750}
+        m_MethodName: UnsetActiveFighter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1049002753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049002747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4873e671dc441cabe39230181c4692, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soEvent: {fileID: 11400000, guid: 0e6ca6b9e24293449997140c879e8e93, type: 2}
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1049002750}
+        m_MethodName: HandleFighterDie
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

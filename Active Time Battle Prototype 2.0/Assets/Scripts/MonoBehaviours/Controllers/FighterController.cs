@@ -15,6 +15,7 @@ namespace MonoBehaviours.Controllers
     {
         public FighterControllerEvent actionStart;
         public FighterControllerEvent actionComplete;
+        public FighterControllerEvent fighterDied;
         public Fighter fighterTemplate;
         public int maxHp;
         public int currentHp;
@@ -64,7 +65,11 @@ namespace MonoBehaviours.Controllers
             }
         }
 
-        public void Damage(int hurt) => currentHp = Mathf.Clamp(currentHp - hurt, 0, maxHp);
+        public void Damage(int hurt)
+        {
+            currentHp = Mathf.Clamp(currentHp - hurt, 0, maxHp);
+            if (currentHp <= 0) fighterDied.Broadcast(this);
+        }
         public void Heal(int heal)
         {
             if (currentHp <= 0 && heal > 0) ResetBattleMeter();

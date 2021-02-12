@@ -1,5 +1,6 @@
 ﻿using ScriptableObjects.Events;
 using ScriptableObjects.GameEntities;
+using ScriptableObjects.Lists;
 using ScriptableObjects.RuntimeSets;
 using TMPro;
 using UnityEngine;
@@ -8,6 +9,7 @@ namespace MonoBehaviours.UI
 {
     public class CharacterSelectUi : MonoBehaviour
     {
+        public Fighters availableFighters;
         public FighterRuntimeSet selectedFighters;
         public Fighter selectedFighter;
         public GameObjectEvent selectButtonPress;
@@ -31,6 +33,17 @@ namespace MonoBehaviours.UI
         {
             _active = true;
             selectButtonPress.Broadcast(gameObject);
+        }
+
+        public void OnRandomizeClick()
+        {
+            var fighter = availableFighters.list[Random.Range(0, availableFighters.list.Count)];
+            
+            if (selectedFighter != null) selectedFighters.Remove(selectedFighter);
+            selectedFighter = Instantiate(fighter);
+            selectedFighters.Add(selectedFighter);
+            
+            RenderUi();
         }
 
         public void OnFighterSelect(Fighter fighter)

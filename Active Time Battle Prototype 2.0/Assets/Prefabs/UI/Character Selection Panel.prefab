@@ -747,6 +747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfc2e1bc11fb4efb86d34030132ad58a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  availableFighters: {fileID: 11400000, guid: 9bc0defd317f83b4c90740e639859940, type: 2}
   selectedFighters: {fileID: 11400000, guid: 011103723b0782747b5da7ae8b6c5048, type: 2}
   selectedFighter: {fileID: 0}
   selectButtonPress: {fileID: 11400000, guid: d3b5dc75869694142bc875a41bd8c457, type: 2}
@@ -918,6 +919,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6272516531936058867, guid: b88adba22a1c3424196da9b7e1c38565,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4439367215143310463}
+    - target: {fileID: 6272516531936058867, guid: b88adba22a1c3424196da9b7e1c38565,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnRandomizeClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 6272516531936058867, guid: b88adba22a1c3424196da9b7e1c38565,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6272516531936058877, guid: b88adba22a1c3424196da9b7e1c38565,
         type: 3}

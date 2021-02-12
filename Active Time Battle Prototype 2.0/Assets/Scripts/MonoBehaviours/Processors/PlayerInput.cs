@@ -27,15 +27,10 @@ namespace MonoBehaviours.Processors
             _inputQueueProcessor = InputQueueProcessor();
             StartCoroutine(_inputQueueProcessor);
         }
-        private void OnDisable()
-        {
-            if (_inputQueueProcessor != null)
-                StopCoroutine(_inputQueueProcessor);
-        }
 
         public void HandleBattleMeterFull(FighterController fighter)
         {
-            if (playerFighters.list.Contains(fighter) && !inputQueue.queue.Contains(fighter))
+            if (playerFighters.list.Contains(fighter))
                 inputQueue.Enqueue(fighter);
         }
 
@@ -51,6 +46,9 @@ namespace MonoBehaviours.Processors
                 if (inputQueue.queue.Count > 0)
                 {
                     _activeFighter = inputQueue.queue.Dequeue();
+                    // Dead player characters can't act
+                    if (_activeFighter.currentHp <= 0) continue;
+
                     activePlayerFighter.Broadcast(_activeFighter);
 
                     while (_selectedAction == null)
