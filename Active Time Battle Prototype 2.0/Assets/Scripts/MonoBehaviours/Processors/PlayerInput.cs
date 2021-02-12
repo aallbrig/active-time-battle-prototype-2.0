@@ -39,6 +39,13 @@ namespace MonoBehaviours.Processors
 
         public void ClearQueue() => inputQueue.queue.Clear();
 
+        public void ResetInput()
+        {
+            _selectedAction = null;
+            _targets = null;
+            _activeFighter = null;
+        }
+
         private IEnumerator InputQueueProcessor()
         {
             while (true)
@@ -57,16 +64,10 @@ namespace MonoBehaviours.Processors
                     while (_targets == null)
                         yield return null;
 
-                    while (_targets.Where(fighter => fighter.currentHp > 0).Where(fighter => !fighter.ready).ToList().Count >
-                           0)
-                        yield return null;
-
                     battleCommand.Broadcast(_activeFighter, _selectedAction, _targets);
                     yield return null;
 
-                    _selectedAction = null;
-                    _targets = null;
-                    _activeFighter = null;
+                    ResetInput();
                 }
 
                 yield return null;

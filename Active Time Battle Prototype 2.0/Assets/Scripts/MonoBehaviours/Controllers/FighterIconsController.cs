@@ -29,6 +29,12 @@ namespace MonoBehaviours.Controllers
                 headArrow.SetActive(false);
         }
 
+        public void HandleFighterDie(FighterController fighter)
+        {
+            if (fighter == _fighter)
+                groundCircle.SetActive(false);
+        }
+
         private void Start()
         {
             _fighter = GetComponent<FighterController>();

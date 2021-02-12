@@ -94,6 +94,9 @@ namespace MonoBehaviours.Controllers
                 yield break;
             }
 
+            while (targets.Where(fighter => !fighter.ready).ToList().Count > 0)
+                yield return null;
+
             actionStart.Broadcast(this);
             ready = false;
 
@@ -113,7 +116,7 @@ namespace MonoBehaviours.Controllers
                     target.Damage(effectValue);
             });
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.25f);
 
             // Egress
             _agent.stoppingDistance = 0;
