@@ -20,24 +20,17 @@ namespace ScriptableObjects.GameEntities.ActionPerformances
             yield return new WaitForSeconds(waitInSeconds.Value);
 
             if (particle.Value != null)
-            {
                 if (spawnParticleOnSelf)
-                {
-                    var particleInstance = Instantiate(particle.Value, controller.transform);
-                    particleInstance.transform.position += particleSpawnOffset.Value;
-                    Destroy(particleInstance, particleLifetimeInSeconds.Value);
-                }
+                    CreateParticle(controller.transform);
                 else
-                {
-                    targets.ForEach(target =>
-                    {
-                        var particleInstance = Instantiate(particle.Value, target.transform);
-                        particleInstance.transform.position += particleSpawnOffset.Value;
-                        Destroy(particleInstance, particleLifetimeInSeconds.Value);
-                    });
-                }
-            }
+                    targets.ForEach(target => CreateParticle(target.transform));
+        }
 
+        private void CreateParticle(Transform transform)
+        {
+            var particleInstance = Instantiate(particle.Value, transform);
+            particleInstance.transform.position += particleSpawnOffset.Value;
+            Destroy(particleInstance, particleLifetimeInSeconds.Value);
         }
     }
 }

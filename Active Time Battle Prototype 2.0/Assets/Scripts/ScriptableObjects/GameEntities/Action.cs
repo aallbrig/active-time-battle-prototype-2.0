@@ -35,12 +35,5 @@ namespace ScriptableObjects.GameEntities
                     target.Damage(effectValue);
             });
         }
-
-
-        // (optional) particles effects
-        // applyParticleEffectEnum (before, beforeEach, afterEach, after)
-
-        // sound effects
-        // applySoundEffectsEnum (before, beforeEach, afterEach, after)
     }
 }

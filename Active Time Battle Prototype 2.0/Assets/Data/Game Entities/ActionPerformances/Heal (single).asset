@@ -9,35 +9,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30bb9da279784d1595d5e28c35fd333f, type: 3}
+  m_Script: {fileID: 11500000, guid: 57309fb4bf7945bda80912022d8b9ba3, type: 3}
   m_Name: Heal (single)
   m_EditorClassIdentifier: 
-  actionName:
+  particle:
     useConstant: 0
     constantValue: {fileID: 0}
-    var: Mega heal
-  performance: {fileID: 11400000, guid: 9432a16ac0f9c5b4184388c2eeacb75a, type: 2}
-  stoppingDistance:
+    var: {fileID: 1055585006069982, guid: c7f93a0255162fd47bbe40874f339bf4, type: 3}
+  spawnParticleOnSelf: 0
+  particleSpawnOffset:
     useConstant: 0
     constantValue: {fileID: 0}
-    var: 5
-  effectMin:
-    useConstant: 0
-    constantValue: {fileID: 0}
-    var: 69
-  effectMax:
-    useConstant: 0
-    constantValue: {fileID: 0}
-    var: 1337
-  mpCost:
-    useConstant: 0
-    constantValue: {fileID: 0}
-    var: 0
-  multiple:
-    useConstant: 0
-    constantValue: {fileID: 0}
-    var: 0
-  healing:
+    var: {x: 0, y: 0, z: 0}
+  particleLifetimeInSeconds:
     useConstant: 0
     constantValue: {fileID: 0}
     var: 1
+  waitInSeconds:
+    useConstant: 0
+    constantValue: {fileID: 0}
+    var: 0.25

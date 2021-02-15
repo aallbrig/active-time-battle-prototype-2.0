@@ -24,7 +24,7 @@ MonoBehaviour:
   effectMin:
     useConstant: 0
     constantValue: {fileID: 0}
-    var: 420
+    var: 69
   effectMax:
     useConstant: 0
     constantValue: {fileID: 0}
