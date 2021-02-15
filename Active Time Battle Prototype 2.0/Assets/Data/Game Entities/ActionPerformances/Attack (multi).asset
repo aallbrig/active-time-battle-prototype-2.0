@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 57309fb4bf7945bda80912022d8b9ba3, type: 3}
-  m_Name: Wait for 0.25 seconds
+  m_Name: Attack (multi)
   m_EditorClassIdentifier: 
   particle:
     useConstant: 0
     constantValue: {fileID: 0}
-    var: {fileID: 1879769179923522, guid: 65932b7368590234d8163da03c2055d8, type: 3}
+    var: {fileID: 1454807473737458, guid: 6108438f5e38d0b4b8fed06af6b74254, type: 3}
   spawnParticleOnSelf: 0
   particleSpawnOffset:
     useConstant: 0

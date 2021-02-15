@@ -9,29 +9,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8381f53ce6244addb175d45e76a9a65b, type: 3}
-  m_Name: Developer class
+  m_Script: {fileID: 11500000, guid: 57309fb4bf7945bda80912022d8b9ba3, type: 3}
+  m_Name: Attack (single)
   m_EditorClassIdentifier: 
-  minHp:
+  particle:
+    useConstant: 0
+    constantValue: {fileID: 0}
+    var: {fileID: 1879769179923522, guid: 65932b7368590234d8163da03c2055d8, type: 3}
+  spawnParticleOnSelf: 0
+  particleSpawnOffset:
+    useConstant: 0
+    constantValue: {fileID: 0}
+    var: {x: 0, y: 0, z: 0}
+  particleLifetimeInSeconds:
     useConstant: 0
     constantValue: {fileID: 0}
     var: 1
-  maxHp:
+  waitInSeconds:
     useConstant: 0
     constantValue: {fileID: 0}
-    var: 1337
-  minMp:
-    useConstant: 0
-    constantValue: {fileID: 0}
-    var: 1
-  maxMp:
-    useConstant: 0
-    constantValue: {fileID: 0}
-    var: 1337
-  secondsUntilBattleMeterFull:
-    useConstant: 0
-    constantValue: {fileID: 0}
-    var: 0.5
-  actions:
-  - {fileID: 11400000, guid: 049abcd52086630478a4f7ceb2e3809a, type: 2}
-  - {fileID: 11400000, guid: d7f4928b7b7c44549a3f3b19ace935fa, type: 2}
+    var: 0.25

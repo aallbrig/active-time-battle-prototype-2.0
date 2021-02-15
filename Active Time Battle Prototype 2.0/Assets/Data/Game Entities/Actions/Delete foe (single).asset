@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30bb9da279784d1595d5e28c35fd333f, type: 3}
-  m_Name: Delete foe
+  m_Name: Delete foe (single)
   m_EditorClassIdentifier: 
   actionName:
     useConstant: 0
@@ -24,11 +24,11 @@ MonoBehaviour:
   effectMin:
     useConstant: 0
     constantValue: {fileID: 0}
-    var: 1337
+    var: 420
   effectMax:
     useConstant: 0
     constantValue: {fileID: 0}
-    var: 42069
+    var: 1337
   mpCost:
     useConstant: 0
     constantValue: {fileID: 0}
