@@ -1,5 +1,4 @@
-﻿using MonoBehaviours.Customizers;
-using ScriptableObjects.Events;
+﻿using ScriptableObjects.Events;
 using ScriptableObjects.Lists;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,20 +14,12 @@ namespace MonoBehaviours.UI
 
         private void Awake()
         {
-            for (var i = 0; i < selectableFighters.list.Count; i++)
+            selectableFighters.list.ForEach(fighter =>
             {
-                // spawn button
-                var fighter = selectableFighters.list[i];
-                var button = Instantiate(fighterSelectionCard, viewportContent);
-                button.GetComponent<Button>().onClick.AddListener(() =>
-                {
-                    fighterSelectedEvent.Broadcast(fighter);
-                });
-
-
-                var customizer = button.GetComponentInChildren<TextMeshProTextCustomizer>();
-                customizer.text = fighter.fighterName;
-            }
+                var card = Instantiate(fighterSelectionCard, viewportContent);
+                card.GetComponent<FighterCard>().Fighter = fighter;
+                card.GetComponentInChildren<Button>().onClick.AddListener(() => fighterSelectedEvent.Broadcast(fighter));
+            });
         }
     }
 }
