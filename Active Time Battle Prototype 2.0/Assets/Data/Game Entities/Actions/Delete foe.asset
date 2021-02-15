@@ -16,6 +16,7 @@ MonoBehaviour:
     useConstant: 0
     constantValue: {fileID: 0}
     var: Delete Foe
+  performance: {fileID: 11400000, guid: c3b2e4c747832eb4394e9620102be1e1, type: 2}
   stoppingDistance:
     useConstant: 0
     constantValue: {fileID: 0}
@@ -32,3 +33,11 @@ MonoBehaviour:
     useConstant: 0
     constantValue: {fileID: 0}
     var: 1
+  multiple:
+    useConstant: 0
+    constantValue: {fileID: 0}
+    var: 0
+  healing:
+    useConstant: 0
+    constantValue: {fileID: 0}
+    var: 0

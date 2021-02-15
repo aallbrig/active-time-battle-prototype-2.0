@@ -10,11 +10,10 @@ namespace ScriptableObjects.GameEntities
     public class Action : ScriptableObject
     {
         public StringRef actionName;
+        public ActionPerformance performance;
         public FloatRef stoppingDistance;
         public IntRef effectMin;
-
         public IntRef effectMax;
-        // applyEffectEnum (before, beforeEach, afterEach, after)
 
         public IntRef mpCost;
 
@@ -24,6 +23,10 @@ namespace ScriptableObjects.GameEntities
         public IEnumerator Act(FighterController controller, List<FighterController> targets)
         {
             var effectValue = Random.Range(effectMin.Value, effectMax.Value);
+
+            if (performance != null)
+                yield return performance.Perform(controller, targets);
+
             targets.ForEach(target =>
             {
                 if (healing.Value)
@@ -31,8 +34,6 @@ namespace ScriptableObjects.GameEntities
                 else
                     target.Damage(effectValue);
             });
-
-            yield return new WaitForSeconds(0.25f);
         }
 
 
