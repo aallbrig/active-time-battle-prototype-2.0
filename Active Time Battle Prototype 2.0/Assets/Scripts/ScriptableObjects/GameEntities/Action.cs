@@ -22,13 +22,13 @@ namespace ScriptableObjects.GameEntities
 
         public IEnumerator Act(FighterController controller, List<FighterController> targets)
         {
-            var effectValue = Random.Range(effectMin.Value, effectMax.Value);
 
             if (performance != null)
                 yield return performance.Perform(controller, targets);
 
             targets.ForEach(target =>
             {
+                var effectValue = Random.Range(effectMin.Value, effectMax.Value);
                 if (healing.Value)
                     target.Heal(effectValue);
                 else
