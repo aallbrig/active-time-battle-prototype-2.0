@@ -18,7 +18,6 @@ namespace MonoBehaviours.UI
             {
                 var card = Instantiate(fighterSelectionCard, viewportContent);
                 card.GetComponent<FighterCard>().Fighter = fighter;
-                card.GetComponentInChildren<Button>().onClick.AddListener(() => fighterSelectedEvent.Broadcast(fighter));
             });
         }
     }

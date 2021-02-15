@@ -883,6 +883,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   availableFighters: {fileID: 11400000, guid: 9bc0defd317f83b4c90740e639859940, type: 2}
   selectedFighters: {fileID: 11400000, guid: 011103723b0782747b5da7ae8b6c5048, type: 2}
+  playerGold: {fileID: 11400000, guid: 7700999eba339784eb6aaf582a77ff70, type: 2}
   selectedFighter: {fileID: 0}
   selectButtonPress: {fileID: 11400000, guid: d3b5dc75869694142bc875a41bd8c457, type: 2}
   modelPreview: {fileID: 0}

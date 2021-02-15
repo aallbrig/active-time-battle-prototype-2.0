@@ -2,6 +2,7 @@
 using ScriptableObjects.GameEntities;
 using ScriptableObjects.Lists;
 using ScriptableObjects.RuntimeSets;
+using ScriptableObjects.Vars;
 using TMPro;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ namespace MonoBehaviours.UI
     {
         public Fighters availableFighters;
         public FighterRuntimeSet selectedFighters;
+        public IntVar playerGold;
         public Fighter selectedFighter;
         public GameObjectEvent selectButtonPress;
         public GameObject modelPreview;
@@ -40,9 +42,18 @@ namespace MonoBehaviours.UI
         {
             var fighter = availableFighters.list[Random.Range(0, availableFighters.list.Count)];
 
-            if (selectedFighter != null) selectedFighters.Remove(selectedFighter);
-            selectedFighter = Instantiate(fighter);
-            selectedFighters.Add(selectedFighter);
+            if (selectedFighter != null)
+            {
+                playerGold.value += selectedFighter.cost.Value;
+                selectedFighters.Remove(selectedFighter);
+            }
+
+            if (playerGold.value > fighter.cost.Value)
+            {
+                selectedFighter = Instantiate(fighter);
+                selectedFighters.Add(selectedFighter);
+                playerGold.value -= fighter.cost.Value;
+            }
 
             RenderUi();
         }
@@ -52,9 +63,19 @@ namespace MonoBehaviours.UI
             if (!_active) return;
 
             _active = false;
-            if (selectedFighter != null) selectedFighters.Remove(selectedFighter);
-            selectedFighter = Instantiate(fighter);
-            selectedFighters.Add(selectedFighter);
+
+            if (selectedFighter != null)
+            {
+                playerGold.value += selectedFighter.cost.Value;
+                selectedFighters.Remove(selectedFighter);
+            }
+
+            if (playerGold.value > fighter.cost.Value)
+            {
+                selectedFighter = Instantiate(fighter);
+                selectedFighters.Add(selectedFighter);
+                playerGold.value -= fighter.cost.Value;
+            }
 
             RenderUi();
         }
