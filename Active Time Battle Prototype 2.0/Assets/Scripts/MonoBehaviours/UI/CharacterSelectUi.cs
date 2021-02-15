@@ -38,11 +38,11 @@ namespace MonoBehaviours.UI
         public void OnRandomizeClick()
         {
             var fighter = availableFighters.list[Random.Range(0, availableFighters.list.Count)];
-            
+
             if (selectedFighter != null) selectedFighters.Remove(selectedFighter);
             selectedFighter = Instantiate(fighter);
             selectedFighters.Add(selectedFighter);
-            
+
             RenderUi();
         }
 

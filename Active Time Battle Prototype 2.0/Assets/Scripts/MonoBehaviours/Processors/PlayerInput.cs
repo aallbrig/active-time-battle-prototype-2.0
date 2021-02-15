@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using MonoBehaviours.Controllers;
 using ScriptableObjects.Events;
 using ScriptableObjects.GameEntities;
@@ -26,6 +25,16 @@ namespace MonoBehaviours.Processors
         {
             _inputQueueProcessor = InputQueueProcessor();
             StartCoroutine(_inputQueueProcessor);
+        }
+
+        private void OnDisable()
+        {
+            if (_inputQueueProcessor != null)
+                StopCoroutine(_inputQueueProcessor);
+
+            inputQueue.queue.Clear();
+            _selectedAction = null;
+            _targets = null;
         }
 
         public void HandleBattleMeterFull(FighterController fighter)

@@ -22,10 +22,18 @@ namespace MonoBehaviours.Processors
 
         private IEnumerator _inputQueueProcessor;
 
-        private void Start()
+        private void OnEnable()
         {
             _inputQueueProcessor = InputQueueProcessor();
             StartCoroutine(_inputQueueProcessor);
+        }
+
+        private void OnDisable()
+        {
+            if (_inputQueueProcessor != null)
+                StopCoroutine(_inputQueueProcessor);
+
+            inputQueue.queue.Clear();
         }
 
         public void HandleBattleMeterFull(FighterController fighter)

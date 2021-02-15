@@ -3,7 +3,6 @@ using MonoBehaviours.Controllers;
 using ScriptableObjects.Events;
 using UnityEngine;
 using UnityEngine.Events;
-using Action = ScriptableObjects.GameEntities.Action;
 
 namespace MonoBehaviours.EventListeners
 {

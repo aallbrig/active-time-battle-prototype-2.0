@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace MonoBehaviours.Controllers
@@ -10,6 +9,8 @@ namespace MonoBehaviours.Controllers
         public GameObject headArrow;
 
         private FighterController _fighter;
+
+        private void Start() => _fighter = GetComponent<FighterController>();
 
         public void HandleActivePlayerFighter(FighterController fighter)
         {
@@ -33,11 +34,6 @@ namespace MonoBehaviours.Controllers
         {
             if (fighter == _fighter)
                 groundCircle.SetActive(false);
-        }
-
-        private void Start()
-        {
-            _fighter = GetComponent<FighterController>();
         }
     }
 }

@@ -1,6 +1,5 @@
 using System.Globalization;
 using MonoBehaviours.Controllers;
-using MonoBehaviours.UI;
 using ScriptableObjects.Refs;
 using TMPro;
 using UnityEngine;
