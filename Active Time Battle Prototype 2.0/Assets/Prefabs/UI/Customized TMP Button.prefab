@@ -92,8 +92,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -161,7 +161,7 @@ MonoBehaviour:
   fontSize:
     useConstant: 0
     constantValue: {fileID: 0}
-    var: 36
+    var: 28
 --- !u!1 &6272516531936058877
 GameObject:
   m_ObjectHideFlags: 0

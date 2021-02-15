@@ -15,6 +15,7 @@ namespace MonoBehaviours.UI
         public GameObjectEvent selectButtonPress;
         public GameObject modelPreview;
         public TextMeshProUGUI nameText;
+        public TextMeshProUGUI costText;
         public TextMeshProUGUI hpText;
         public TextMeshProUGUI mpText;
         public TextMeshProUGUI actionsText;
@@ -61,6 +62,7 @@ namespace MonoBehaviours.UI
         private void RenderUi()
         {
             nameText.text = "";
+            costText.text = "";
             hpText.text = "";
             mpText.text = "";
             actionsText.text = "";
@@ -73,6 +75,7 @@ namespace MonoBehaviours.UI
                 Destroy(child.gameObject);
 
             nameText.text = "Name: " + selectedFighter.fighterName.Value;
+            costText.text = "Cost: " + selectedFighter.cost.Value;
             hpText.text = "Health range: " + fighterClass.minHp.Value + " - " + fighterClass.maxHp.Value;
             mpText.text = "Mana range: " + fighterClass.minMp.Value + " - " + fighterClass.maxMp.Value;
             for (var i = 0; i < fighterClass.actions.Count; i++)

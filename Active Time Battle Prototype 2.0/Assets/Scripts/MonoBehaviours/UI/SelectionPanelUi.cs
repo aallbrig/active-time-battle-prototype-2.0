@@ -10,7 +10,7 @@ namespace MonoBehaviours.UI
     {
         public Fighters selectableFighters;
         public Transform viewportContent;
-        public GameObject fighterSelectButton;
+        public GameObject fighterSelectionCard;
         public FighterEvent fighterSelectedEvent;
 
         private void Awake()
@@ -19,7 +19,7 @@ namespace MonoBehaviours.UI
             {
                 // spawn button
                 var fighter = selectableFighters.list[i];
-                var button = Instantiate(fighterSelectButton, viewportContent);
+                var button = Instantiate(fighterSelectionCard, viewportContent);
                 button.GetComponent<Button>().onClick.AddListener(() =>
                 {
                     fighterSelectedEvent.Broadcast(fighter);
