@@ -25,7 +25,7 @@ MonoBehaviour:
   cost:
     useConstant: 0
     constantValue: {fileID: 0}
-    var: 0
+    var: 10
   goldRewardMin:
     useConstant: 0
     constantValue: {fileID: 0}

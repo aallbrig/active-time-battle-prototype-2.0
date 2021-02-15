@@ -7384,6 +7384,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1395186834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395186825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f4048764e0842b78f3e6833bede8566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingGold:
+    useConstant: 1
+    constantValue: {fileID: 11400000, guid: 8f27b21b125bf694d8cc327c7c395387, type: 2}
+    var: 0
+  playerGold: {fileID: 11400000, guid: 7700999eba339784eb6aaf582a77ff70, type: 2}
 --- !u!114 &1395186836 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6898796042105935194, guid: dcf591bfa3633c446a754965b9217f67,
@@ -8753,9 +8770,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6898796042105935194, guid: dcf591bfa3633c446a754965b9217f67,
         type: 3}
+      propertyPath: playerGold
+      value: 
+      objectReference: {fileID: 11400000, guid: 7700999eba339784eb6aaf582a77ff70,
+        type: 2}
+    - target: {fileID: 6898796042105935194, guid: dcf591bfa3633c446a754965b9217f67,
+        type: 3}
       propertyPath: currentState
       value: 
       objectReference: {fileID: 11400000, guid: 37b78b953c8faee45a32509c3f3e6ac2,
+        type: 2}
+    - target: {fileID: 6898796042105935194, guid: dcf591bfa3633c446a754965b9217f67,
+        type: 3}
+      propertyPath: startingGold.useConstant
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6898796042105935194, guid: dcf591bfa3633c446a754965b9217f67,
+        type: 3}
+      propertyPath: startingGold.constantValue
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f27b21b125bf694d8cc327c7c395387,
         type: 2}
     - target: {fileID: 6898796042105935199, guid: dcf591bfa3633c446a754965b9217f67,
         type: 3}

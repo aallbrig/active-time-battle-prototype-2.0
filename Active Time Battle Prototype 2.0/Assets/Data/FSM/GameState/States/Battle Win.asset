@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 552aef1ad3a143b5944fa0dfe433c0d5, type: 3}
-  m_Name: Battle Win
+  m_Name: Battle win
   m_EditorClassIdentifier: 
   startActions:
   - {fileID: 11400000, guid: 33e77448c6248b94791d5e33790fc00a, type: 2}

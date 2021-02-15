@@ -110,17 +110,7 @@ namespace MonoBehaviours.Controllers
             yield return AgentReachedDestination(_agent);
 
             // Action
-            // TODO: Replace with action ienumerator method call
-            var effectValue = Random.Range(action.effectMin.Value, action.effectMax.Value);
-            targets.ForEach(target =>
-            {
-                if (action.healing.Value)
-                    target.Heal(effectValue);
-                else
-                    target.Damage(effectValue);
-            });
-
-            yield return new WaitForSeconds(0.25f);
+            yield return action.Act(this, targets);
 
             // Egress
             _agent.stoppingDistance = 0;
