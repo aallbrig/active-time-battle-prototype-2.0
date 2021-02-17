@@ -68,13 +68,17 @@ namespace MonoBehaviours.Processors
                     activePlayerFighter.Broadcast(_activeFighter);
 
                     while (_selectedAction == null)
-                        yield return null;
+                        if (_activeFighter.currentHp <= 0) break;
+                        else yield return null;
 
                     while (_targets == null)
-                        yield return null;
+                        if (_activeFighter.currentHp <= 0) break;
+                        else yield return null;
+
+                    // Dead player characters can't act
+                    if (_activeFighter.currentHp <= 0) continue;
 
                     battleCommand.Broadcast(_activeFighter, _selectedAction, _targets);
-                    yield return null;
 
                     ResetInput();
                 }

@@ -41,6 +41,7 @@ namespace MonoBehaviours.Controllers
             _transform.position = _startingPosition;
             _transform.rotation = _startingRotation;
             _agent.SetDestination(_startingPosition);
+            ready = true;
         }
 
         private void Start()
@@ -98,7 +99,8 @@ namespace MonoBehaviours.Controllers
                 yield break;
             }
 
-            while (targets.Where(fighter => !fighter.ready).ToList().Count > 0)
+            var notSelfTargets = targets.Where(fighter => fighter != this).ToList();
+            while (notSelfTargets.Where(fighter => !fighter.ready).ToList().Count > 0)
                 yield return null;
 
             actionStart.Broadcast(this);

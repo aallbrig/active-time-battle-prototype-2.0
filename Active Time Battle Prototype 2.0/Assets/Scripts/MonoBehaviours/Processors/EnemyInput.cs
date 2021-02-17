@@ -73,8 +73,10 @@ namespace MonoBehaviours.Processors
                     var targets = GetAppropriateTargetsForAction(selectedAction);
                     yield return new WaitForSeconds(Random.Range(aiWaitMin.Value, aiWaitMax.Value));
 
-                    while (targets.Where(fighter => !fighter.ready).ToList().Count > 0)
-                        yield return null;
+                    var notSelfTargets = targets.Where(fighter => activeFighter != fighter).ToList();
+                    if (notSelfTargets.Count > 0)
+                        while (notSelfTargets.Where(fighter => !fighter.ready).ToList().Count > 0)
+                            yield return null;
 
                     battleCommand.Broadcast(activeFighter, selectedAction, targets);
                 }
